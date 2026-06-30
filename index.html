@@ -1,37 +1,70 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bat-Script | Armin</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,sans-serif;color:#fff;min-height:100vh;display:grid;place-items:center;overflow:hidden;background:#070b16}
-body:before,body:after{content:"";position:fixed;inset:-20%;background:
-radial-gradient(circle at 20% 30%,#3b82f655,transparent 20%),
-radial-gradient(circle at 80% 20%,#8b5cf655,transparent 20%),
-radial-gradient(circle at 60% 80%,#2563eb55,transparent 25%);
-filter:blur(30px);animation:move 18s ease-in-out infinite alternate}
-body:after{animation-duration:24s;opacity:.8}
-@keyframes move{to{transform:translate(5%,5%) scale(1.2) rotate(10deg)}}
-.card{width:min(860px,92vw);padding:50px;border-radius:28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(18px);box-shadow:0 20px 80px rgba(0,0,0,.45)}
-.badge{display:inline-block;padding:7px 14px;border-radius:999px;background:#2563eb33;border:1px solid #4f8cff66;color:#9dc1ff;font-size:.9rem}
-h1{font-size:3.4rem;margin:16px 0 8px}
-p{color:#cbd5e1;line-height:1.8}
-.btn{display:inline-block;margin-top:28px;padding:15px 24px;border-radius:14px;text-decoration:none;color:#fff;background:linear-gradient(90deg,#2563eb,#7c3aed);font-weight:700;transition:.25s}
-.btn:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 15px 40px rgba(80,120,255,.4)}
-.news{margin-top:40px;padding:24px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
-.news h2{margin-bottom:12px}
-footer{margin-top:30px;color:#94a3b8;font-size:.9rem}
-</style></head>
-<body>
-<div class="card">
-<div class="badge">👋 Welcome</div>
-<h1>Bat-Script</h1>
-<p>Hi! I'm <b>Armin</b>. I don't have much to show yet, but I recently published a fun post you might enjoy reading.</p>
-<a class="btn" href="https://bat-script.github.io/animals" target="_blank">📖 Read I2 Lecture Post</a>
-<div class="news">
-<h2>🔥 Latest News</h2>
-<p>I'm currently building a universal transpiler capable of translating between multiple programming languages. The goal is to make code portable, simple, and fast.</p>
-</div>
-<footer>Made with ❤️ by Armin</footer>
-</div>
-</body></html>
+body{
+    font-family:Inter,sans-serif;
+    color:#fff;
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    background:#070b16;
+    position:relative;
+}
+
+body::before,
+body::after{
+    content:"";
+    position:fixed;
+    inset:-20%;
+    background:
+        radial-gradient(circle at 20% 30%,#3b82f655,transparent 20%),
+        radial-gradient(circle at 80% 20%,#8b5cf655,transparent 20%),
+        radial-gradient(circle at 60% 80%,#2563eb55,transparent 25%);
+    filter:blur(30px);
+    animation:move 18s ease-in-out infinite alternate;
+
+    /* IMPORTANT */
+    pointer-events:none;
+    z-index:-2;
+}
+
+body::after{
+    animation-duration:24s;
+    opacity:.8;
+}
+
+.card{
+    position:relative;
+    z-index:1;
+
+    width:min(860px,92vw);
+    padding:50px;
+    border-radius:28px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    box-shadow:0 20px 80px rgba(0,0,0,.45);
+}
+
+.btn{
+    position:relative;
+    z-index:2;
+
+    display:inline-block;
+    margin-top:28px;
+    padding:15px 24px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+    color:#fff;
+
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 15px 40px rgba(80,120,255,.4);
+}
